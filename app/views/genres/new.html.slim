@@ -1,0 +1,10 @@
+h3
+  | Add a Genre
+  = form_for(@genre) do |f|
+    .field
+      = f.label :name, "Genre Name"
+      br
+      = f.text_field :name, :autocomplete => "off"
+    = f.hidden_field :created_by_id, :value => @user_id
+    .action_container
+      = f.submit
