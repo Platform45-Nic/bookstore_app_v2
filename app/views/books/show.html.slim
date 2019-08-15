@@ -1,0 +1,47 @@
+  ul#links-list
+    = link_to books_path do
+      i.fa.fa-user-circle-o[aria-hidden="true"]
+      |  Find a book 
+    = link_to genres_path do
+      i.fa.fa-user-circle-o[aria-hidden="true"]
+      |  Find a genre 
+#main-content.col-sm-9
+  p
+    | Current Book: 
+  li
+    | Title: 
+    = @book.title
+  li
+    | Description: 
+    = @book.description
+  li
+    | Author: 
+    = User.find(@book.author_id).first_name
+    = User.find(@book.author_id).last_name
+  li
+    | Genre: 
+    = Genre.find(@book.genre_id).name
+  li
+    = link_to "Purchase", transactions_path(:transaction_comment => "Purchase from Book Show Page",:user_id => current_user.id, :book_id => @book.id), :method => :post
+  br
+  br
+  br
+  = link_to books_path do
+    i.fa.fa-user-circle-o[aria-hidden="true"]
+    |  Continue to Books 
+  br
+  = link_to new_genre_path do
+    i.fa.fa-user-circle-o[aria-hidden="true"]
+    |  Add a Genre 
+  br
+  = link_to new_book_path do
+    i.fa.fa-user-circle-o[aria-hidden="true"]
+    |  Add a Book 
+  br
+  = link_to show_path do
+    i.fa.fa-user-circle-o[aria-hidden="true"]
+    |  View Profile 
+  br
+  = link_to books_path do
+    i.fa.fa-user-circle-o[aria-hidden="true"]
+    |  View All Books 
