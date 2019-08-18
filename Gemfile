@@ -20,10 +20,15 @@ gem 'will_paginate', '3.1.7'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'bootstrap_form'
-gem 'faker'
+
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
