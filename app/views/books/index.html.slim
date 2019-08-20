@@ -9,7 +9,7 @@ p
     = link_to "Edit", edit_book_path(books.id)
     = link_to "View", book_path(books.id)
     = link_to "Purchase", transactions_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
-    = link_to "Review", reviews_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
+    = link_to "Review", review_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
 br
 br
 br
