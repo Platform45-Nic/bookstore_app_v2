@@ -13,11 +13,10 @@ class GenresController < ApplicationController
   end
 
   def new
-    @genre = Genre.new
+    @genre = Genre.new(creator: current_user)
   end
 
   def create
-    @user_id = current_user.id
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "You have created a Genre"
@@ -30,11 +29,11 @@ class GenresController < ApplicationController
   private
 
     def genre_params
-      params.require(:genre).permit(:name, :created_by_id)
+      params.require(:genre).permit(:name, :creator_id)
     end
 
     def get_book_using_genre_id(selected_genre)
       @book = Book.find(selected_genre).title
     end
-    
+
 end

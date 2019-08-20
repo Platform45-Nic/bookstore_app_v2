@@ -7,6 +7,10 @@ h1 Welcome to The BookStore
       br
     |
     br
+    = link_to 'New Genre', new_genre_path
+    br
+    = link_to 'New Book', new_book_path
+    br
     = link_to 'Edit profile', edit_user_registration_path
     br
     = link_to 'View profile', profile_path
@@ -16,6 +20,6 @@ h1 Welcome to The BookStore
 - else
     = link_to "Sign up", new_user_registration_path
     br
-    |  | 
+    |
     = link_to "Login", new_user_session_path
     br
