@@ -9,7 +9,7 @@ p
     = link_to "Edit", edit_book_path(books.id)
     = link_to "View", book_path(books.id)
     = link_to "Purchase", transactions_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
-    = link_to "Review", review_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
+    = link_to "Review", reviews_path(:review_description => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
 br
 br
 br
@@ -20,10 +20,6 @@ br
 = link_to new_book_path do
   i.fa.fa-user-circle-o[aria-hidden="true"]
   |  Add a Book 
-br
-= link_to show_path do
-  i.fa.fa-user-circle-o[aria-hidden="true"]
-  |  View Profile 
 br
 = link_to books_path do
   i.fa.fa-user-circle-o[aria-hidden="true"]
