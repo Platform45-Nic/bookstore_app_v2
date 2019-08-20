@@ -5,6 +5,30 @@ h3
       = f.label :name, "Genre Name"
       br
       = f.text_field :name, :autocomplete => "off"
-    = f.hidden_field :created_by_id, :value => @user_id
+    = f.hidden_field :creator_id
     .action_container
       = f.submit
+
+- if user_signed_in?
+    |  Logged in as 
+    strong
+      = current_user.email
+      br
+    |
+    br
+    = link_to 'New Genre', new_genre_path
+    br
+    = link_to 'New Book', new_book_path
+    br
+    = link_to 'Edit profile', edit_user_registration_path
+    br
+    = link_to 'View profile', profile_path
+    br
+    = link_to "Logout", destroy_user_session_path, method: :delete
+    br
+- else
+    = link_to "Sign up", new_user_registration_path
+    br
+    |
+    = link_to "Login", new_user_session_path
+    br

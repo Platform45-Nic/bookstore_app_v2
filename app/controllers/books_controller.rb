@@ -13,8 +13,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    # @user_id = current_user.id
-    # @genre_list = list_all_genre
     @book = Book.new(book_params)
     if @book.save
       flash[:success] = "You have created a Book"
@@ -44,12 +42,4 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :description, :author_id, :genre_id)
     end
 
-    # def get_user_id
-    #   @user_id = User.find(current_user.id)
-    # end
-
-    # def get_genre_id(selected_genre)
-    #   @genre_id = Genre.find(selected_genre)
-    # end
-    
 end
