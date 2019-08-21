@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-# Test suite for the Book model
+# Test suite for the Genre model
 RSpec.describe Genre, type: :model do
   it { should belong_to(:creator) }
 
