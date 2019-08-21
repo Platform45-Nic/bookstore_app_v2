@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 # Test suite for the Book model
-RSpec.describe Book, type: :model do
+RSpec.describe Genre, type: :model do
   it { should belong_to(:creator) }
 
+  it { should validate_presence_of(:name) }
 end
