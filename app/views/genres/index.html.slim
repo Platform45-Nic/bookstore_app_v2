@@ -1,6 +1,8 @@
 p
-  | Current Genres: 
+  | All Current Genres: 
 - @genres.each do |genre|
   li
     = genre.name
+br
+= link_to "Continue", books_path
 br
