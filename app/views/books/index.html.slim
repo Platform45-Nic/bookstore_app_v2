@@ -1,15 +1,15 @@
 p
   | List of All Books: 
-- @book.each do |books|
+- @books.each do |book|
   li
-    = books.title
-    = books.description
-    = books.author_id
-    = books.genre_id
-    = link_to "Edit", edit_book_path(books.id)
-    = link_to "View", book_path(books.id)
-    = link_to "Purchase", transactions_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
-    = link_to "Review", reviews_path(:review_description => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post
+    = book.title
+    = book.description
+    = book.author_id
+    = book.genre_id
+    = link_to "Edit", edit_book_path(book.id)
+    = link_to "View", book_path(book.id)
+    = link_to "Purchase", transactions_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => book.id), :method => :post
+    = link_to "Review", reviews_path(:review_description => "Default comment",:user_id => current_user.id, :book_id => book.id), :method => :post
 br
 br
 br

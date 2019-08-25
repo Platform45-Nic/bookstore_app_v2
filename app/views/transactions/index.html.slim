@@ -12,23 +12,23 @@
     #main-content.col-sm-9
       p
         | List of All Purchases: 
-      - @transaction.each do |transactions|
+      - @transactions.each do |transaction|
         li
         | Comments: 
-        = transactions.transaction_comment
+        = transaction.transaction_comment
         li
           | Buyer: 
-          = User.find(transactions.user_id).first_name
+          = User.find(transaction.user_id).first_name
           '
-          = User.find(transactions.user_id).last_name
+          = User.find(transaction.user_id).last_name
         li
           | Book Title: 
-          = Book.find(transactions.book_id).title
+          = Book.find(transaction.book_id).title
         li
           | Book Author: 
-          = User.find(Book.find(transactions.book_id).author_id).first_name
+          = User.find(Book.find(transaction.book_id).author_id).first_name
           '
-          = User.find(Book.find(transactions.book_id).author_id).last_name
+          = User.find(Book.find(transaction.book_id).author_id).last_name
       br
       br
 - if user_signed_in?
