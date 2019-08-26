@@ -1,6 +1,12 @@
-h1 Welcome to The BookStore
-
-p
-  | Review
-  = @review
+h3
+  | Add a Review for: 
   br
+  = form_for(@review) do |f|
+    .field
+      = f.label :review_description, "Review Comment:"
+      br
+      = f.text_field :review_description, :autocomplete => "off"
+    = f.hidden_field :user_id, :value => @user_id
+    = f.hidden_field :book_id, :value => @book_id
+    .action_container
+      = f.submit

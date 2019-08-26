@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :genres
   resources :books
   resources :transactions, only: [:index, :show, :new, :create]
-  resources :reviews
+  resources :reviews #do
+   # get "/new(:book_id)(:user_id)", action: :new, on: :collection, as: "new_bid_uid"
+   #get "/new(:book_id)(:user_id)", to: 'reviews#new', on: :collection, as: "new_bid_uid"
+  #end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
