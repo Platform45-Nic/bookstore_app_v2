@@ -1,0 +1,10 @@
+h2
+  | Genre Name: 
+  = @genre.name
+| Genre Creator: 
+= User.find(@genre.creator_id).first_name
+|   
+= User.find(@genre.creator_id).last_name
+br
+= link_to "Continue", genres_path
+br

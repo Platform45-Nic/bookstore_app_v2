@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @user_id = params[:user_id]
+    @book_id = params[:book_id]
     @review = Review.new
   end
 
@@ -19,8 +21,8 @@ class ReviewsController < ApplicationController
 
   private
 
-  def review_params
-    review.require(:review).permit(:review_description, :user_id, :book_id)
-  end
-
+    def review_params
+      params.permit(:review_description, :user_id, :book_id)
+    end
+    
 end

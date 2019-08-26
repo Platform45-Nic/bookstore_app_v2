@@ -1,24 +1,12 @@
-h1 Welcome to The BookStore
-
-p
-  | Review
-  = @review
+h3
+  | Add a Review for: 
   br
-  - if user_signed_in?
-    br
-      |  Logged in as 
-      strong
-        = current_user.email
-        br
-      |
+  = form_for(@review) do |f|
+    .field
+      = f.label :review_description, "Review Comment:"
       br
-      = link_to 'Edit profile', edit_user_registration_path
-      br
-      = link_to "Logout", destroy_user_session_path, method: :delete
-      br
-  - else
-      = link_to "Sign up", new_user_registration_path
-      br
-      |  | 
-      = link_to "Login", new_user_session_path
-      br
+      = f.text_field :review_description, :autocomplete => "off"
+    = f.hidden_field :user_id, :value => @user_id
+    = f.hidden_field :book_id, :value => @book_id
+    .action_container
+      = f.submit

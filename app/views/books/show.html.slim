@@ -1,50 +1,20 @@
-  ul#links-list
-    = link_to books_path do
-      i.fa.fa-user-circle-o[aria-hidden="true"]
-      |  Find a book 
-    = link_to genres_path do
-      i.fa.fa-user-circle-o[aria-hidden="true"]
-      |  Find a genre 
-  p
-    | Current Book: 
-  li
-    | Title: 
-    = @book.title
-  li
-    | Description: 
-    = @book.description
-  li
-    | Author: 
-    = User.find(@book.author_id).first_name
-    = User.find(@book.author_id).last_name
-  li
-    | Genre: 
-    = Genre.find(@book.genre_id).name
-  li
-    = link_to "Purchase", transactions_path(:transaction_comment => "Purchase from Book Show Page",:user_id => current_user.id, :book_id => @book.id), :method => :post
-  br
-  br
-  br
-  - if user_signed_in?
-      |  Logged in as 
-      strong
-        = current_user.email
-        br
-      |
-      br
-      = link_to 'New Genre', new_genre_path
-      br
-      = link_to 'New Book', new_book_path
-      br
-      = link_to 'Edit profile', edit_user_registration_path
-      br
-      = link_to 'View profile', profile_path
-      br
-      = link_to "Logout", destroy_user_session_path, method: :delete
-      br
-  - else
-      = link_to "Sign up", new_user_registration_path
-      br
-      |
-      = link_to "Login", new_user_session_path
-      br
+p
+  | Current Book: 
+li
+  | Title: 
+  = @book.title
+li
+  | Description: 
+  = @book.description
+li
+  | Author: 
+  = User.find(@book.author_id).first_name
+  = User.find(@book.author_id).last_name
+li
+  | Genre: 
+  = Genre.find(@book.genre_id).name
+li
+  = link_to "Purchase", transactions_path(:transaction_comment => "Purchase from Book Show Page",:user_id => current_user.id, :book_id => @book.id), :method => :post
+li
+  = link_to "All Genre's", genres_path
+br
